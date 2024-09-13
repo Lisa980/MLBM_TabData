@@ -8,5 +8,5 @@ matplotlib
 seaborn 
 plotly
 streamlit-pandas-profiling
-ydata-profiling==4.2.0
-phik==0.12.3
+ydata-profiling==3.6.1
+phik==0.11.2
