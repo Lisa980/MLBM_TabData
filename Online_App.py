@@ -422,7 +422,7 @@ with tab1:
                 data = pair_buf,
                 file_name = "pairplots.png",
                 mime = "image/png"
-            )
+            #)
 
         #### expander to display ydata profile report
         with st.expander("Profile Report", expanded = True):
@@ -430,7 +430,7 @@ with tab1:
             # display profile report
             st.subheader("Profile Report")
 
-            pr = generate_profile_report(df)
+            #pr = generate_profile_report(df)
             st_profile_report(pr)
 
             # enable download of the profile report
@@ -448,7 +448,7 @@ with tab1:
                     data = buffer,
                     file_name = "profile_report.html",
                     mime = "text/html"
-                )
+                #)
 
     else:
         st.write("Please upload a dataset!")
