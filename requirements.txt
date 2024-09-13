@@ -8,5 +8,5 @@ imblearn
 matplotlib
 seaborn 
 plotly
-ydata-profiling
-phik
+
+
