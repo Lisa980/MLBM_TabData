@@ -16,7 +16,8 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-from ydata_profiling import ProfileReport, st_profile_report
+from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 from io import BytesIO
 from sklearn.model_selection import KFold, StratifiedKFold, cross_val_score
 
