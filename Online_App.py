@@ -16,8 +16,8 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-#from ydata_profiling import ProfileReport
-#from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 from io import BytesIO
 from sklearn.model_selection import KFold, StratifiedKFold, cross_val_score
 
@@ -80,9 +80,9 @@ def create_boxplots(df):
 
 
 # function to create profile report
-#@st.cache_resource
-#def generate_profile_report(df):
-    #return ProfileReport(df, title = "Data Profile Report")
+@st.cache_resource
+def generate_profile_report(df):
+    return ProfileReport(df, title = "Data Profile Report")
 
 
 # function to create regression model
@@ -425,30 +425,30 @@ with tab1:
             )
 
         #### expander to display ydata profile report
-        #with st.expander("Profile Report", expanded = True):
+        with st.expander("Profile Report", expanded = True):
 
             # display profile report
-            #st.subheader("Profile Report")
+            st.subheader("Profile Report")
 
-            #pr = generate_profile_report(df)
-            #st_profile_report(pr)
+            pr = generate_profile_report(df)
+            st_profile_report(pr)
 
             # enable download of the profile report
-            #if st.button("Download Profile Report"):
+            if st.button("Download Profile Report"):
 
                 # write profile report to HTML
-                #html_pr = pr.to_html()
-                #buffer = BytesIO()
-                #buffer.write(html_pr.encode("utf-8"))
-                #buffer.seek(0)
+                html_pr = pr.to_html()
+                buffer = BytesIO()
+                buffer.write(html_pr.encode("utf-8"))
+                buffer.seek(0)
 
                 # create download button functionality
-                #st.download_button(
-                    #label = "Download Profile Report",
-                    #data = buffer,
-                    #file_name = "profile_report.html",
-                    #mime = "text/html"
-                #)
+                st.download_button(
+                    label = "Download Profile Report",
+                    data = buffer,
+                    file_name = "profile_report.html",
+                    mime = "text/html"
+                )
 
     else:
         st.write("Please upload a dataset!")
