@@ -10,3 +10,4 @@ seaborn
 plotly
 ydata-profiling
 phik
+streamlit_pandas_profiling
