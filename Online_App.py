@@ -407,6 +407,7 @@ with tab1:
 
         #### expander to display pairplots
         with st.expander("Pairplots", expanded = True):
+            
             # create pairplots
             pairplot = sns.pairplot(df)
             st.pyplot(pairplot)
@@ -420,18 +421,6 @@ with tab1:
                 label = "Download Pairplots",
                 data = pair_buf,
                 file_name = "pairplots.png",
-                mime = "image/png"
-            )
-
-                    # enable download of the boxplot
-            buf = BytesIO()
-            boxplots.savefig(buf, format = "png")
-            buf.seek(0) 
-
-            st.download_button(
-                label = "Download Boxplots",
-                data = buf,
-                file_name = "boxplots.png",
                 mime = "image/png"
             )
 
@@ -1237,8 +1226,8 @@ with tab2:
 
                     # enable download of the trained model
                     st.download_button("Download Trained Model", data = pickle.dumps(best_model), file_name = "model.pkl")  
-        else:
-            st.write("Please upload a dataset!")
+    else:
+        st.write("Please upload a dataset!")
 
 
 # --------------------- settings for the machine learning tab ---------------------------------
